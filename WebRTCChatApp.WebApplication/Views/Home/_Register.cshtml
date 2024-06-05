@@ -1,0 +1,49 @@
+﻿@model WebRTCChatApp.WebApplication.Models.UserRegisterViewModel
+@{
+    ViewData["Title"] = "Sign Up";
+}
+<form id="registerForm" asp-action="_Register" asp-controller="Home" method="post">
+        <!-- Username input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" asp-for="UserName"  class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+            <label class="form-label" for="UserName">Username</label>
+        </div>
+
+        <!-- Email input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="email" asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+            <label class="form-label" for="Email">Email</label>
+        </div>
+
+        <!-- Password input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+        <input type="password" asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+            <label class="form-label" for="Password">Password</label>
+        </div>
+
+       @*  <!-- Repeat Password input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="password" id="repeatPassword" name="ConfirmPassword" class="form-control" />
+            <label class="form-label" for="repeatPassword">Repeat password</label>
+        </div> *@
+
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+            <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                   aria-describedby="registerCheckHelpText" />
+            <label class="form-check-label" for="registerCheck">
+                I have read and agree to the terms
+            </label>
+        </div>
+        <!-- Submit button -->
+    <button id="SignUpButton" type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
+    </form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

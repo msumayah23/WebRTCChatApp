@@ -1,0 +1,6 @@
+@WebRTCChatApp.SignalService_HostAddress = http://localhost:5298
+
+GET {{WebRTCChatApp.SignalService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,29 @@
+﻿@model WebRTCChatApp.WebApplication.Models.UserLoginViewModel
+@{
+    ViewData["Title"] = "Sign In";
+}
+@* <form  asp-action="_Login" method="post"> *@
+<form id="loginForm" asp-action="_Login" asp-controller="Home" method="post">
+    <!-- Username input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="text" asp-for="LoginUserName" class="form-control" />
+        <span asp-validation-for="LoginUserName" class="text-danger"></span>
+        <label class="form-label" for="LoginUserName">Username</label>
+    </div>
+
+    <!-- Password input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="password" asp-for="LoginPassword" class="form-control" />
+        <span asp-validation-for="LoginPassword" class="text-danger"></span>
+        <label class="form-label" for="LoginPassword">Password</label>
+    </div>
+
+    <!-- Submit button -->
+    <button id="login" type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
